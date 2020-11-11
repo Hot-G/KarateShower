@@ -1,0 +1,355 @@
+﻿<Window x:Class="KarateShower.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KarateShower"
+        xmlns:uccustom="clr-namespace:KarateShower"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF040404" Foreground="White" FontSize="36" Margin="0" WindowStyle="None" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing" KeyDown="Window_KeyDown">
+    <Grid>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="303*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="160*"/>
+        </Grid.RowDefinitions>
+        <!-- MAVİ TAKIM SKOR KISMI -->
+        <Grid Background="#FF315DF3">
+            <Label x:Name="bluescoretxt" Foreground="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="200" Margin="0,0,0,40" Content="0"/>
+            <Border x:Name="bluefirstpoint" Width="30" HorizontalAlignment="Right" Background="#FFD1EC77" Visibility="Hidden"/>
+                <uccustom:flagcontroller x:Name="blueflag" Width="230" Margin="10" InnerText="TURKEY" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Arrow" />
+
+            </Grid>
+        <!-- KIRMIZI TAKIM SKOR KISMI -->
+        <Grid Background="#FFFB1414" Grid.Column="2">
+            <Label x:Name="redscoretxt" Foreground="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="200" Margin="0,0,0,40" Content="0"/>
+            <Border x:Name="redfirstpoint" Width="30" HorizontalAlignment="Left" Background="#FFD1EC77" Visibility="Hidden"/>
+            <uccustom:flagcontroller x:Name="redflag" Width="230" Margin="10" InnerText="TURKEY" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="Arrow" FlagDock="Right"/>
+
+            </Grid>
+        
+        <!-- TATAMİ ve SAYAÇ GÖSTERME KISMI -->
+
+        <Border Grid.Column="1" VerticalAlignment="Top">
+            <StackPanel>
+                <Label Foreground="WhiteSmoke" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="30" VerticalAlignment="Top">TATAMI</Label>
+                <Label x:Name="tatamicounttxt" Foreground="WhiteSmoke" HorizontalAlignment="Center" FontSize="45">1</Label>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="1" VerticalAlignment="Bottom">
+            <StackPanel>
+                <Label Content="ZAMAN" FontSize="30" Foreground="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+                    <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="minustimebtn" ToolTip="Saniyeyi 1 azalt"
+                    CornerRadius="30" Width="60" Height="60"  HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource buton}" Margin="0,15,10,0" MouseLeftButtonDown="Minustimebtn_MouseLeftButtonDown">
+                            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="Icons/minus-icon.png"/>
+                                </Border.Background>
+                            </Border>
+                        </Border>
+                        <Label Content="00:00" x:Name="sayactxt" FontSize="160" Foreground="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Symbol"/>
+                        <Border x:Name="addtimebtn" ToolTip="Saniyeyi 1 arttır"
+                    CornerRadius="30" Width="60" Height="60"  HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="Addtimebtn_MouseLeftButtonDown" Margin="10,15,0,0">
+                            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="Icons/add-icon.png"/>
+                                </Border.Background>
+                            </Border>
+                        </Border>
+                    </DockPanel>
+            </StackPanel>
+        </Border>
+        
+        <!-- MAVİ TAKIM CEZA KISMI -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel>
+                <Label Content="C-1" Foreground="WhiteSmoke" VerticalAlignment="Center" Margin="5,5,10,5"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="bluec1box1"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="bluec1box2"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="bluec1box3"/>
+                <Border x:Name="addbluec1btn" ToolTip="Mavi takıma C-1 ver"
+                    CornerRadius="30" Width="60" Height="60"  HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="GiveBlueC1_Click" Margin="20,0,0,0">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/add-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+            </DockPanel>
+            <DockPanel Grid.Row="1">
+                <Label Content="C-2" Foreground="WhiteSmoke" VerticalAlignment="Center" Margin="5,5,10,5"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="bluec2box1"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="bluec2box2"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="bluec2box3"/>
+                <Border x:Name="addbluec2btn" ToolTip="Mavi takıma C-2 ver"
+                    CornerRadius="30" Width="60" Height="60"  HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="GiveBlueC2_Click" Margin="20,0,0,0">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/add-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+            </DockPanel>
+        </Grid>
+
+        <!-- KIRMIZI TAKIM CEZA KISMI -->
+
+        <Grid Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DockPanel>
+                <Border x:Name="addredc1btn" ToolTip="Kırmızı takıma C-1 ver"
+                    CornerRadius="30" Width="60" Height="60"  HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="GiveRedC1_Click" Margin="0,0,20,0">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/add-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="redc1box3"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="redc1box2"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="redc1box1"/>
+                <Label Content="C-1" Foreground="WhiteSmoke" VerticalAlignment="Center" Margin="5,5,10,5"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1">
+                <Border x:Name="addredc2btn" ToolTip="Kırmızı takıma C-2 ver"
+                    CornerRadius="30" Width="60" Height="60"  HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="GiveRedC2_Click" Margin="0,0,20,0">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/add-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="redc2box3"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="redc2box2"/>
+                <Border CornerRadius="10" BorderThickness="5" Width="50" Height="50" BorderBrush="Red" HorizontalAlignment="Left" Margin="5" x:Name="redc2box1"/>
+                <Label Content="C-2" Foreground="WhiteSmoke" VerticalAlignment="Center" Margin="5,5,10,5"/>
+            </DockPanel>
+        </Grid>
+
+
+        <!-- BAŞLATMA VE AYARLAR KISMI -->
+        <Grid Grid.Column="1" Grid.Row="2" Width="540">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border x:Name="startstopbtn" ToolTip="Başlat/Durdur"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonDown="Startstopbtn_MouseLeftButtonDown" Style="{DynamicResource startbuton}">
+                <Border x:Name="startstopbtnicon" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="60">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Icons/play-icon.png"/>
+                    </Border.Background>
+                </Border>
+            </Border>
+            <DockPanel Grid.Row="1">
+                <Border x:Name="addsecondbtn"
+                    CornerRadius="50" Width="80" Height="80"  HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="Addsecondbtn_MouseLeftButtonDown" Margin="0,0,10,0" ToolTip="İkinci Ekranda Göster">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/secondscreen-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+
+                <Border x:Name="backbtn"
+                    CornerRadius="50" Width="100" Height="100" Style="{DynamicResource buton}" VerticalAlignment="Center" MouseLeftButtonDown="Backbtn_MouseLeftButtonDown" ToolTip="Geri Al">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/reply-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+
+
+                <Border x:Name="restartbtn"
+                    CornerRadius="50" Width="80" Height="80" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="RestartButton_Click" Margin="10,0,0,0" HorizontalAlignment="Right" DockPanel.Dock="Right" ToolTip="Restart">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/restart-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+
+                <Border x:Name="settingsbtn"
+                    CornerRadius="50" Width="100" Height="100" VerticalAlignment="Center" MouseLeftButtonDown="OpenSettings_MouseDown" Style="{DynamicResource buton}" HorizontalAlignment="Right" DockPanel.Dock="Right" ToolTip="Ayarlar">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/settingsicon.png"/>
+                        </Border.Background>
+                    </Border>
+                </Border>
+
+            </DockPanel>
+
+        </Grid>
+
+
+        <Border Grid.Row="2">
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="PUAN" Foreground="White" HorizontalAlignment="Center"/>
+                <DockPanel HorizontalAlignment="Center">
+                    <Border x:Name="blue1point"
+                    CornerRadius="50" Width="100" Height="100" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="AddBluePoint_Click" Margin="5" HorizontalAlignment="Right" Tag="1">
+                        <Label Content="1" Foreground="White" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border x:Name="blue2point"
+                    CornerRadius="50" Width="100" Height="100" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="AddBluePoint_Click" Margin="5" HorizontalAlignment="Right" Tag="2">
+                        <Label Content="2" Foreground="White" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border x:Name="blue3point"
+                    CornerRadius="50" Width="100" Height="100" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="AddBluePoint_Click" Margin="5" HorizontalAlignment="Right" Tag="3">
+                        <Label Content="3" Foreground="White" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="2">
+            <StackPanel VerticalAlignment="Center">
+                <Label Content="PUAN" Foreground="White" HorizontalAlignment="Center"/>
+                <DockPanel HorizontalAlignment="Center">
+                    <Border x:Name="red1point"
+                    CornerRadius="50" Width="100" Height="100" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="AddRedPoint_Click" Margin="5" HorizontalAlignment="Right" Tag="1">
+                        <Label Content="1" Foreground="White" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border x:Name="red2point"
+                    CornerRadius="50" Width="100" Height="100" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="AddRedPoint_Click" Margin="5" HorizontalAlignment="Right" Tag="2">
+                        <Label Content="2" Foreground="White" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border x:Name="red3point"
+                    CornerRadius="50" Width="100" Height="100" VerticalAlignment="Center" Style="{DynamicResource buton}" MouseLeftButtonDown="AddRedPoint_Click" Margin="5" HorizontalAlignment="Right" Tag="3">
+                        <Label Content="3" Foreground="White" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="victoryboard" Grid.Column="1" Grid.Row="1" Margin="20" Background="#FF7824F1" BorderBrush="#FFD3C1C1" BorderThickness="1" Width="500" Height="120" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
+            <Label x:Name="victorytxt" Content="KIRMIZI TAKIM KAZANDI !" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        </Border>
+    </Grid>
+    <!-- AYARLAR KISMI -->
+        <Grid Width="500" Height="700" x:Name="settingsGrid" Visibility="Hidden">
+            <Border Background="#FF0A0A0A" CornerRadius="10" BorderBrush="#FF8B8B8B" BorderThickness="2,2,2,2.6">
+                <StackPanel>
+                    <Border Background="#FF2C2C2C" CornerRadius="10" Margin="0,0,0,10">
+                        <Grid>
+                            <Border x:Name="stbackbtn" Height="80"  Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="BackBtn_Click" HorizontalAlignment="Left" Visibility="Hidden">
+                                <!--Background="#FF594949"-->
+                                <Label Content="GERİ" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0" FontSize="32"/>
+                            </Border>
+                            <Label Content="AYARLAR" Foreground="White" HorizontalAlignment="Center" Margin="0,10" FontSize="36"/>
+                        </Grid>
+                    </Border>
+
+
+                    <StackPanel Height="700" x:Name="stflaglist" Visibility="Collapsed">
+                        <TextBox x:Name="stflagsearchbtn" Width="300" Margin="0,10,0,30" TextChanged="Stflagsearchbtn_TextChanged" />
+                    </StackPanel>
+                    
+                    
+                    
+                    
+                    <DockPanel>
+                        <StackPanel>
+                            <Label Content="AU" Foreground="White" HorizontalAlignment="Center" FontSize="30"/>
+                            <uccustom:flagcontroller x:Name="stblueflag" Width="230" Margin="10" InnerText="TURKEY" Height="80" MouseLeftButtonDown="StFlagClickEvent" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="AKA" Foreground="White" HorizontalAlignment="Center" FontSize="30"/>
+                            <uccustom:flagcontroller x:Name="stredflag" Width="230" HorizontalAlignment="Right" Margin="10" InnerText="TURKEY" Height="80" MouseLeftButtonDown="StFlagClickEvent"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <!-- ZAMAN -->
+                    <DockPanel HorizontalAlignment="Center">
+                        <StackPanel>
+                            <Label Content="ZAMAN" Foreground="White" HorizontalAlignment="Center" FontSize="30" Margin="0,10"/>
+                            <DockPanel LastChildFill="False" HorizontalAlignment="Center">
+                                <Border x:Name="sttimedown" Height="80" Width="40"  Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="Sttimedown_MouseLeftButtonDown">
+                                    <Label Content="&lt;" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <Label Content="00:00" Foreground="White" VerticalAlignment="Center" Margin="10" x:Name="sttimetxt"/>
+                                <Border x:Name="sttimeup" Height="80" Width="40" Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="Sttimeup_MouseLeftButtonDown">
+                                    <Label Content=">" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </DockPanel>
+                        </StackPanel>
+                        <!-- TATAMI -->
+                        <StackPanel Margin="60,0,0,0">
+                            <Label Content="TATAMI" Foreground="White" HorizontalAlignment="Center" FontSize="30" Margin="0,10"/>
+                            <DockPanel LastChildFill="False" HorizontalAlignment="Center">
+                                <Border x:Name="sttatamidown" Height="80" Width="40"  Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="Sttatamidown_MouseLeftButtonDown">
+                                    <Label Content="&lt;" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <Label Content="1" Foreground="White" VerticalAlignment="Center" Margin="10" x:Name="sttatamitxt" Width="58" HorizontalContentAlignment="Center"/>
+                                <Border x:Name="sttatamiup" Height="80" Width="40"  Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="Sttatamiup_MouseLeftButtonDown">
+                                    <Label Content=">" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </DockPanel>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel>
+                        <Border x:Name="lastmatchbtn" HorizontalAlignment="Center" Margin="40,40,0,40"  Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="Lastmatchbtn_MouseLeftButtonDown">
+                            <Label Content="MAÇLAR" Margin="20,10" Foreground="White"/>
+                        </Border>
+                        <Border x:Name="producerbtn" HorizontalAlignment="Right" Margin="0,40,40,40"  Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="Producerbtn_MouseLeftButtonDown">
+                            <Label Content="YAPIMCI" Margin="20,10" Foreground="White"/>
+                        </Border>
+                    </DockPanel>
+
+
+                </StackPanel>
+                
+            </Border>
+            <DockPanel x:Name="settingslastbtn" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,30">
+                <Border x:Name="stcancelbtn" HorizontalAlignment="Center" Margin="10"  Style="{DynamicResource settingsbuton}" VerticalAlignment="Center" MouseLeftButtonDown="Stcancelbtn_MouseLeftButtonDown">
+                    <Label Content="İPTAL ET" Margin="20,10" Foreground="White"/>
+                </Border>
+                <Border x:Name="stacceptbtn" HorizontalAlignment="Center" Margin="40,10,10,10"  Style="{DynamicResource settingsbuton}" MouseLeftButtonDown="Stacceptbtn_MouseLeftButtonDown">
+                    <Label Content="ONAYLA" Margin="20,10" Foreground="White"/>
+                </Border>
+            </DockPanel>
+        </Grid>
+
+        <Border Visibility="Collapsed" x:Name="lastmatchborder" Width="450" HorizontalAlignment="Left" Background="#FF0A0A0A" CornerRadius="10" BorderBrush="#FF8B8B8B" BorderThickness="2">
+            <StackPanel x:Name="lastmatchlist">
+                <Label Content="SON MAÇLAR" HorizontalAlignment="Center" Margin="10" Foreground="White"/>
+            </StackPanel>
+        </Border>
+        
+        
+        
+        
+        
+        
+        <!-- YAPIMCI -->
+        <Border Background="#FF0A0A0A" x:Name="productorborder" Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="G-hot Software" FontSize="130" Foreground="White" Margin="10,10,10,0"/>
+                <Label Content="Cihat Özdemir" FontSize="48" Foreground="White" HorizontalAlignment="Center"/>
+                <Label Content="İLETİŞİM" FontSize="15" Foreground="White" HorizontalAlignment="Center" Margin="20,20,20,0"/>
+                <Label Content="cihatozdemirmis@hotmail.com" FontSize="36" Foreground="White" HorizontalAlignment="Center"/>
+                <Label Content="www.ghotsoftware.com" FontSize="36" Foreground="White" HorizontalAlignment="Center"/>
+                <Label Content="Tüm Hakları Saklıdır. Copyright 2019©" FontSize="10" Foreground="White" HorizontalAlignment="Center" Margin="5"/>
+                <Border Width="230" Height="110" HorizontalAlignment="Center" Margin="20" Background="#FF494949" CornerRadius="15" Cursor="Hand" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                    <Label Content="TAMAM" Foreground="White" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

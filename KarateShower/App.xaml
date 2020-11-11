@@ -1,0 +1,53 @@
+﻿<Application x:Class="KarateShower.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:KarateShower"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="buton" TargetType="Border">
+            <Setter Property="Background" Value="#FF44FF55" />
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF309C39" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="startbuton" TargetType="Border">
+            <Setter Property="Background" Value="#FF44FF55" />
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="116"/>
+            <Setter Property="Height" Value="116"/>
+            <Setter Property="CornerRadius" Value="58"/>
+            
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF8B41F5" />
+                    <Setter Property="Width" Value="120"/>
+                    <Setter Property="Height" Value="120"/>
+                    <Setter Property="CornerRadius" Value="60"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="settingsbuton" TargetType="Border">
+            <Setter Property="Background" Value="#FF322B2B" />
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF252020" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="secondscreenceza" TargetType="Border">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="CornerRadius" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+
+        </Style>
+    </Application.Resources>
+</Application>

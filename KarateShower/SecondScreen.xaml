@@ -1,0 +1,172 @@
+﻿<Window x:Class="KarateShower.SecondScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KarateShower"
+        mc:Ignorable="d"
+        Title="SecondScreen" Height="900" Width="1600" Background="#FF020202" WindowStyle="None" ResizeMode="NoResize" Closing="Window_Closing">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="180*"/>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="80*"/>
+                <!--<RowDefinition Height="10*"/>-->
+            </Grid.RowDefinitions>
+
+            <!-- TATAMI KISMI -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="TATAMI" Foreground="White" FontSize="25"/>
+                <Label x:Name="tatamitxt" Content="1" Foreground="White" HorizontalAlignment="Center" FontSize="45"/>
+            </StackPanel>
+
+            <!-- ÜLKE KISMI -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DockPanel>
+                    <Border Width="80" Height="80" Margin="20,10" x:Name="redflagimg">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/secondscreen-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                    <Label Content="TURKEY" Foreground="WhiteSmoke" x:Name="redcountrytxt" VerticalAlignment="Center" FontSize="40"/>
+                </DockPanel>
+
+                <DockPanel Grid.Column="1" HorizontalAlignment="Right">
+                    <Label Content="TURKEY" Foreground="WhiteSmoke" x:Name="bluecountrytxt" VerticalAlignment="Center" FontSize="40"/>
+                    <Border Width="80" Height="80" Margin="20,10" x:Name="blueflagimg">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Icons/secondscreen-icon.png"/>
+                        </Border.Background>
+                    </Border>
+                </DockPanel>
+            </Grid>
+
+            <!-- SKOR ve SÜRE KISMI -->
+            <Grid Grid.Row="1">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FFB20000"/>
+                        <GradientStop Color="#FF7C156B" Offset="0.45"/>
+                        <GradientStop Color="#FF7C156B" Offset="0.5"/>
+                        <GradientStop Color="#FF7C156B" Offset="0.55"/>
+                        <GradientStop Color="#FF002689" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!-- MAVİ TAKIM SKOR KISMI -->
+                <Border>
+                    <Label Content="0" x:Name="redscoretxt" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="210" Foreground="WhiteSmoke" HorizontalContentAlignment="Center"/>
+                </Border>
+                <Polygon x:Name="redfirstpoint" Margin="0,20,20,20"
+            HorizontalAlignment="Right"
+            Width="60" Height="140"
+            Points="0,1 2,2 2,0"
+            Fill="#FFD1EC77"
+            Stretch="Fill" Visibility="Hidden" />
+
+
+                <!-- SÜRE -->
+                <Border Grid.Column="1">
+                    <Label Content="00:00" x:Name="timertxt" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="170" Foreground="WhiteSmoke" HorizontalContentAlignment="Center" FontFamily="Symbol"/>
+                </Border>
+                <!-- KIRMIZI SKOR KISMI -->
+                <Border Grid.Column="2">
+                    <Label Content="0" x:Name="bluescoretxt" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="210" Foreground="WhiteSmoke" HorizontalContentAlignment="Center"/>
+                </Border>
+                <Polygon x:Name="bluefirstpoint" Grid.Column="2" Margin="0,20,20,20"
+            HorizontalAlignment="Left"
+            Width="60"  Height="140"
+            Points="0,2 2,1 0,0"
+            Fill="#FFD1EC77"
+            Stretch="Fill" Visibility="Hidden" />
+                <!--<Border Grid.Column="2" x:Name="redfirstpoint" Visibility="Hidden" BorderBrush="#FFD1EC77" BorderThickness="15"/>-->
+
+
+            </Grid>
+
+            <Border Grid.Row="2">
+                <DockPanel>
+                    <DockPanel VerticalAlignment="Center">
+                        <Label Content="C-1" Foreground="White" FontSize="80" VerticalAlignment="Center" Margin="20,0"/>
+                        <Border x:Name="redc1bord1" Width="150" Height="100" CornerRadius="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="redc1bord2" Width="150" Height="100" CornerRadius="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="redc1bord3" Width="150" Height="100" CornerRadius="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                    </DockPanel>
+
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <Border x:Name="bluec1bord3" Width="150" Height="100" CornerRadius="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="bluec1bord2" Width="150" Height="100" CornerRadius="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="bluec1bord1" Width="150" Height="100" CornerRadius="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Label Content="C-1" Foreground="White" FontSize="80" VerticalAlignment="Center" Margin="20,0"/>
+                    </DockPanel>
+                </DockPanel>
+
+            </Border>
+
+            <Border Grid.Row="3">
+                <DockPanel>
+                    <DockPanel>
+                        <Label Content="C-2" Foreground="White" FontSize="80" VerticalAlignment="Center" Margin="20,0"/>
+                        <Border x:Name="redc2bord1" Style= "{ DynamicResource secondscreenceza}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="redc2bord2" Style= "{ DynamicResource secondscreenceza}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="redc2bord3" Style= "{ DynamicResource secondscreenceza}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                    </DockPanel>
+
+                    <DockPanel HorizontalAlignment="Right">
+                        <Border x:Name="bluec2bord3" Style= "{ DynamicResource secondscreenceza}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="bluec2bord2" Style= "{ DynamicResource secondscreenceza}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Border x:Name="bluec2bord1" Style= "{ DynamicResource secondscreenceza}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border Width="40" Height="15" Background="#FFCD0505" CornerRadius="4"/>
+                        </Border>
+                        <Label Content="C-2" Foreground="White" FontSize="80" VerticalAlignment="Center" Margin="20,0"/>
+                    </DockPanel>
+                </DockPanel>
+            </Border>
+
+
+        </Grid>
+
+        <!-- ZAFER SAYFASI -->
+        <Grid  x:Name="victorybord" Visibility="Collapsed">
+            <Border Background="#FF040404">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label x:Name="victorytxt" Content="AKA WIN" FontSize="160" Foreground="White"/>
+                    <Border x:Name="victoryimg" Width="400" Height="400"/>
+                </StackPanel>
+            </Border>
+            <Border x:Name="victoryframebord" Margin="80" BorderBrush="#FF326CE8" BorderThickness="70"/>
+        </Grid>
+    </Grid>
+</Window>

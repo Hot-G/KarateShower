@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="KarateShower.flagcontroller"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KarateShower"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="230" Cursor="Hand">
+    <Grid>
+        <Border Background="#FF322B2B" CornerRadius="10">
+            <!-- #FF423636 -->
+            <DockPanel>
+                <Border x:Name="flagimg" Margin="10,0" Width="80">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Icons/secondscreen-icon.png"/>
+                    </Border.Background>
+                </Border>
+                <Label x:Name="flagtxt" Content="FLAG" VerticalAlignment="Center" Foreground="#FFD4D4D4" HorizontalAlignment="Center" FontSize="22"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>
